@@ -21,156 +21,61 @@
 <body>
   <div id="root" class="column-flex">
     <div id="title-flex" class="column-flex">
+      <h1> Loopy: Taming Audio-Driven Portrait Avatar with Long-Term motion Dependency </h1>
       <span>
-        <a target="_blank" href="" onclick="return false;">Sicheng&nbsp;Xu</a><sup>*</sup>,
-        <a target="_blank" href="https://www.microsoft.com/en-us/research/people/guoch/">Guojun&nbsp;Chen</a><sup>*</sup>,
-        <a target="_blank" href="https://yuxiaoguo.github.io/">Yu-Xiao&nbsp;Guo</a><sup>*</sup>,
-        <a target="_blank" href="http://jlyang.org/">Jiaolong&nbsp;Yang</a><sup>*‡</sup>,
+        <a target="_blank" href="" onclick="return false;">Jianwen&nbsp;Jiang</a><sup>1</sup>,
+        <a target="_blank" href="" onclick="return false;">Chao&nbsp;Liang</a><sup>1</sup>,
+        <a target="_blank" href="" onclick="return false;">Jiaqi&nbsp;Yang</a><sup>1</sup>,
+        <a target="_blank" href="" onclick="return false;">Gaojie&nbsp;Lin</a><sup>1</sup>,
+        <a target="_blank" href="" onclick="return false;">Tianyun&nbsp;Zhong</a><sup>1,2</sup>,
+        <a target="_blank" href="" onclick="return false;">Yanbo&nbsp;Zheng</a><sup>1</sup>
         <br />
-        <a target="_blank" href="https://www.linkedin.com/in/chong-li-15810132/">Chong&nbsp;Li</a><sup></sup>,
-        <a target="_blank" href="" onclick="return false;">Zhenyu&nbsp;Zang</a><sup></sup>,
-        <a target="_blank" href="https://yizhongzhang1989.github.io/">Yizhong&nbsp;Zhang</a><sup></sup>,
-        <a target="_blank" href="https://www.microsoft.com/en-us/research/people/xtong/">Xin&nbsp;Tong</a><sup></sup>,
-        <a target="_blank" href="https://www.microsoft.com/en-us/research/people/bainguo/">Baining&nbsp;Guo</a><sup></sup>
       </span>
-      <span>Microsoft Research Asia<br /><sup>*</sup>Equal Contributions&nbsp;&nbsp;<sup>‡</sup>Corresponding Author: jiaoyan@microsoft.com</span>
+      <span><sup>1</sup>Bytedance<br /><sup>1</sup>Zhejiang&nbsp;University</span>
       <div class="flex flex-gap" style="margin-bottom:0.5em;">
-        <a target="_blank" href="https://arxiv.org/abs/2404.10667"><button>arXiv</button></a>
-        <a target="_blank" href="https://arxiv.org/pdf/2404.10667.pdf"><button>PDF</button></a>
-	<a target="_blank" href="" onclick="alert('Coming soon!');return false;"><button>CAPP Model</button></a>
+        <a target="_blank" href=""><button>Paper</button></a>
+        <a target="_blank" href="https://loopyavatar.github.io"><button>Page</button></a>
+	      <a target="_blank" href="" onclick="alert('TBD');return false;"><button>Code</button></a>
       </div>
-      <small><span><b>TL;DR</b>: single portrait photo + speech audio = hyper-realistic talking face video with
-          <i>precise lip-audio sync</i>, <i>lifelike facial behavior</i>, and <i>naturalistic head movements</i>,
-          generated in <i>real time</i>.</span></small>
+      <small><span><b>TL;DR</b>: we propose an end-to-end audio-only conditioned video diffusion model named <b>Loopy</b>. Specifically, we designed an inter- and intra-clip temporal module and an audio-to-latents module, enabling the model to leverage long-term motion information from the data to learn natural motion patterns and improving audio-portrait movement correlation. This method removes the need for manually specified spatial motion templates used in existing methods to constrain motion during inference, delivering more lifelike and high-quality results across various scenarios.</span></small>
       <div class='responsive-image-container'>
-        <img src='image/teaser.jpg' alt='' />
+        <img src='image/teaser.png' alt='' />
       </div>
     </div>
-    <div id="abstract-flex" class="column-flex">
-      <h2>Abstract</h2>
-      <small>
-        <p>
-          We introduce VASA, a framework for generating lifelike talking faces of virtual characters with appealing visual affective skills (VAS), given a single static image and a speech audio clip. Our premiere model, VASA-1, is capable of not only producing lip movements that are exquisitely synchronized with the audio, but also capturing a large spectrum of facial nuances and natural head motions that contribute to the perception of authenticity and liveliness. The core innovations include a holistic facial dynamics and head movement generation model that works in a face latent space, and the development of such an expressive and disentangled face latent space using videos. Through extensive experiments including evaluation on a set of new metrics, we show that our method significantly outperforms previous methods along various dimensions comprehensively. Our method not only delivers high video quality with realistic facial and head dynamics but also supports the online generation of 512x512 videos at up to 40 FPS with negligible starting latency. It paves the way for real-time engagements with lifelike avatars that emulate human conversational behaviors.
-        </p>
-      </small>
-    </div>
+
     <div id="sections" class="column-flex">
-	<p style="color:#700000"><i>(Note: all portrait images on this page are virtual, non-existing identities generated by StyleGAN2 or DALL·E-3 (except for Mona Lisa). We are exploring visual affective skill generation for virtual, interactive characters, NOT impersonating any person in the real world. This is only a research demonstration and there's no product or API release plan. See also the bottom of this page for more of our Responsible AI considerations.) </i></p>
-	<h3>Realism and liveliness</h3>
-      <p>
-        Our method is capable of not only producing precious lip-audio synchronization, but also generating a large
-        spectrum of expressive facial nuances and natural head motions. It can handle arbitary-length audio and stably output seamless talking face videos.
-      </p>
-      <div class="video-slider">
-        <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
-        <video src="video/l5.mp4"></video>
-        <video src="video/l8.mp4"></video>
-        <video src="video/l3.mp4"></video>
-        <video src="video/l4.mp4"></video>
-        <video src="video/l7.mp4"></video>
-        <video src="video/l2.mp4"></video>
-      </div>
-      <div class="centered">Examples with audio input of one minute long.<br />&nbsp;</div>
-      <br />
-      <div class="video-slider">
-        <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
-        <video src="video/9.mp4"></video>
-        <video src="video/15.mp4"></video>
-        <video src="video/3.mp4"></video>
-        <video src="video/11.mp4"></video>
-        <video src="video/10.mp4"></video>
-        <video src="video/7.mp4"></video>
-        <video src="video/13.mp4"></video>
-        <video src="video/17.mp4"></video>
-        <video src="video/5.mp4"></video>
-        <video src="video/12.mp4"></video>
-      </div>
-      <div class="centered">More shorter examples with diverse audio input</div>
-	  
-	  <h3>Controllability of generation</h3>
-      <p>
-        Our diffusion model accepts optional signals as condition, such as main eye gaze direction and head distance, and emotion offsets.
-      </p>
-      <div class="video-container">
-        <video controls playsInline src="video/female_gaze.mp4"></video>
-      </div>
-      <div class="centered">Generation results under different main gaze directions (forward-facing, leftwards,
-        rightwards, and upwards, respectively)</div>
-      <br />
-      <div class="video-container">
-        <video controls playsInline src="video/female_scale.mp4"></video>
-      </div>
-      <div class="centered">Generation results under different head distance scales</div>
-      <br />
-      <div class="video-container">
-        <video controls playsInline src="video/male_emotion.mp4"></video>
-      </div>
-      <div class="centered">Generation results under different emotion offsets (neutral, happiness,
-        anger, and surprise, respectively)</div>
-      
-      <h3>Out-of-distribution generalization</h3>
-      <p>
-        Our method exhibits the capability to handle photo and audio inputs that are out of the training distribution.
-        For example, it can handle artistic photos, singing audios, and non-English speech. These types of data were
-        not present in the training set.
-      </p>
-      <div class="flex">
-        <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
-        <div class="video-container">
-          <video controls playsInline src="video/o1.mp4"></video>
+      <!-- <p style="color:#700000"><i>(Note: all portrait images on this page are virtual, non-existing identities generated by StyleGAN2 or DALL·E-3 (except for Mona Lisa). We are exploring visual affective skill generation for virtual, interactive characters, NOT impersonating any person in the real world. This is only a research demonstration and there's no product or API release plan. See also the bottom of this page for more of our Responsible AI considerations.) </i></p> -->
+      <h3>Generated Videos</h3>
+        <p>
+          Loopy supports various visual and audio styles. It can generate vivid motion details from audio alone, such as non-speech movements like sighing, emotion-driven eyebrow and eye movements, and natural head movements.
+        </p>
+        <div class="video-slider">
+          <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
+          <video src="video/main_1.mp4"></video>
+          <video src="video/main_2.mp4"></video>
+          <video src="video/main_3.mp4"></video>
+          <video src="video/main_4.mp4"></video>
+          <video src="video/main_5.mp4"></video>
         </div>
-        <div class="video-container">
-          <video controls playsInline src="video/o2.mp4"></video>
-        </div>
-        <div class="video-container">
-          <video controls playsInline src="video/o6.mp4"></video>
-        </div>
-        <div class="video-container">
-          <video controls playsInline src="video/o5.mp4"></video>
-        </div>
-      </div>
-      <h3>Power of disentanglement</h3>
-      <p>
-        Our latent representation disentangles appearance, 3D head pose, and facial dynamics, which enables
-        separate attribute control and editing of the generated content.
-      </p>
-      <div class="flex">
-        <div class="video-container">
-          <video controls playsInline src="video/sameid_female_0.mp4"></video>
-        </div>
-        <div class="video-container">
-          <video controls playsInline src="video/same_latent.mp4"></video>
-        </div>
-      </div>
-      <div class="centered">Same input photo with different motion sequences (left two cases), and same motion sequence with different
-        photos (right three cases)</div>
-      <br />
-      <div class="video-container">
-        <video controls playsInline src="video/male_disen.mp4"></video>
-      </div>
-      <div class="centered">Pose and expression editing (raw generation result, pose-only result, expression-only
-        result, and expression with spinning pose)</div>
-		
-      <h3>Real-time efficiency</h3>
-      <p>
-        Our method generates video frames of 512x512 size at <b>45fps</b> in the offline batch processing mode, and can support up to <b>40fps</b> in the online streaming mode with a preceding latency of only 170ms , evaluated on a desktop PC with a single NVIDIA RTX 4090 GPU.
-      </p>  
-	  <video controls playsInline src="video/realtime_demo.mp4" width="80%"></video>
-	  <div class="centered">A real-time demo</div>
+          
 
-      <h3>Risks and responsible AI considerations</h3>
-      <p>
-        Our research focuses on generating visual affective skills for virtual AI avatars, aiming for positive applications. It is not intended to create content that is used to mislead or deceive. However, like other related content generation techniques, it could still potentially be misused for impersonating humans. We are opposed to any behavior to create misleading or harmful contents of real persons, and are interested in applying our technique for advancing forgery detection. Currently, the videos generated by this method still contain identifiable artifacts, and the numerical analysis shows that there's still a gap to achieve the authenticity of real videos. <br /><br />
-
-		While acknowledging the possibility of misuse, it's imperative to recognize the substantial positive potential of our technique. The benefits – such as enhancing educational equity, improving accessibility for individuals with communication challenges, offering companionship or therapeutic support to those in need, among many others – underscore the importance of our research and other related explorations. We are dedicated to developing AI responsibly, with the goal of advancing human well-being. <br /><br />
-		
-		Given such context, we have no plans to release an online demo, API, product, additional implementation details, or any related offerings until we are certain that the technology will be used responsibly and in accordance with proper regulations.
-      </p>
+      <h3>Ethics Concerns</h3>
+        <p>
+          The purpose of this work is only for research. The images and audios used in these demos are from public sources. If there are any concerns, please contact us (jianwen.alan@gmail.com) and we will delete it in time.
+        </p>
     </div>
-  </div>
   </div>
   <script src="index.js"></script>
+  <script>
+    function comming_soon_click() {
+      alert('Comming soon!');
+    }
+    function TBD_click() {
+      alert('TBD');
+    }
+  </script>
 </body>
+
 
 
 </html>
