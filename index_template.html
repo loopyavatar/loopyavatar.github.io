@@ -1,0 +1,79 @@
+<h3>Controllability of generation</h3>
+<p>
+  Our diffusion model accepts optional signals as condition, such as main eye gaze direction and head distance, and emotion offsets.
+</p>
+<div class="video-container">
+  <video controls playsInline src="video/female_gaze.mp4"></video>
+</div>
+<div class="centered">Generation results under different main gaze directions (forward-facing, leftwards,
+  rightwards, and upwards, respectively)</div>
+<br />
+<div class="video-container">
+  <video controls playsInline src="video/female_scale.mp4"></video>
+</div>
+<div class="centered">Generation results under different head distance scales</div>
+<br />
+<div class="video-container">
+  <video controls playsInline src="video/male_emotion.mp4"></video>
+</div>
+<div class="centered">Generation results under different emotion offsets (neutral, happiness,
+  anger, and surprise, respectively)</div>
+
+<h3>Out-of-distribution generalization</h3>
+<p>
+  Our method exhibits the capability to handle photo and audio inputs that are out of the training distribution.
+  For example, it can handle artistic photos, singing audios, and non-English speech. These types of data were
+  not present in the training set.
+</p>
+<div class="flex">
+  <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
+  <div class="video-container">
+    <video controls playsInline src="video/o1.mp4"></video>
+  </div>
+  <div class="video-container">
+    <video controls playsInline src="video/o2.mp4"></video>
+  </div>
+  <div class="video-container">
+    <video controls playsInline src="video/o6.mp4"></video>
+  </div>
+  <div class="video-container">
+    <video controls playsInline src="video/o5.mp4"></video>
+  </div>
+</div>
+<h3>Power of disentanglement</h3>
+<p>
+  Our latent representation disentangles appearance, 3D head pose, and facial dynamics, which enables
+  separate attribute control and editing of the generated content.
+</p>
+<div class="flex">
+  <div class="video-container">
+    <video controls playsInline src="video/sameid_female_0.mp4"></video>
+  </div>
+  <div class="video-container">
+    <video controls playsInline src="video/same_latent.mp4"></video>
+  </div>
+</div>
+<div class="centered">Same input photo with different motion sequences (left two cases), and same motion sequence with different
+  photos (right three cases)</div>
+<br />
+<div class="video-container">
+  <video controls playsInline src="video/male_disen.mp4"></video>
+</div>
+<div class="centered">Pose and expression editing (raw generation result, pose-only result, expression-only
+  result, and expression with spinning pose)</div>
+  
+<h3>Real-time efficiency</h3>
+<p>
+  Our method generates video frames of 512x512 size at <b>45fps</b> in the offline batch processing mode, and can support up to <b>40fps</b> in the online streaming mode with a preceding latency of only 170ms , evaluated on a desktop PC with a single NVIDIA RTX 4090 GPU.
+</p>   
+<!-- <video controls playsInline src="video/realtime_demo.mp4" width="80%"></video> -->
+
+
+<div id="abstract-flex" class="column-flex">
+<h2>Abstract</h2>
+<small>
+  <p>
+    With the introduction of diffusion-based video generation techniques, audio-conditioned human video generation has recently achieved significant breakthroughs in both the naturalness of motion and the synthesis of portrait details. Due to the limited control of audio signals in driving human motion, existing methods often add auxiliary spatial signals to stabilize movements, which may compromise the naturalness and freedom of motion. In this paper, we propose an end-to-end audio-only conditioned video diffusion model named Loopy. Specifically, we designed an inter- and intra-clip temporal module and an audio-to-latents module, enabling the model to leverage long-term motion information from the data to learn natural motion patterns and improving audio-portrait movement correlation. This method removes the need for manually specified spatial motion templates used in existing methods to constrain motion during inference. Extensive experiments show that Loopy outperforms recent audio-driven portrait diffusion models, delivering more lifelike and high-quality results across various scenarios.
+  </p>
+</small>
+</div>
