@@ -1,12 +1,5 @@
 <!doctype html>
 <html lang="en">
-<!-- <script>  
-        window.onload = function() {  
-        if (window == window.parent) {  
-            document.body.innerHTML = '';  
-        }  
-    };  
-</script> -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -31,11 +24,11 @@
         <a target="_blank" href="" onclick="return false;">Yanbo&nbsp;Zheng</a><sup>1</sup>
         <br />
       </span>
-      <span><sup>1</sup>Bytedance<br /><sup>1</sup>Zhejiang&nbsp;University</span>
+      <span><sup>1</sup>Bytedance,<sup>2</sup>Zhejiang&nbsp;University</span>
       <div class="flex flex-gap" style="margin-bottom:0.5em;">
-        <a target="_blank" href=""><button>Paper</button></a>
-        <a target="_blank" href="https://loopyavatar.github.io"><button>Page</button></a>
+        <a target="_blank" href="" onclick="alert('Comming Soon!');return false;"><button>Paper</button></a>
 	      <a target="_blank" href="" onclick="alert('TBD');return false;"><button>Code</button></a>
+        <a target="_blank" href="https://loopyavatar.github.io"><button>Page</button></a>
       </div>
       <small><span><b>TL;DR</b>: we propose an end-to-end audio-only conditioned video diffusion model named <b>Loopy</b>. Specifically, we designed an inter- and intra-clip temporal module and an audio-to-latents module, enabling the model to leverage long-term motion information from the data to learn natural motion patterns and improving audio-portrait movement correlation. This method removes the need for manually specified spatial motion templates used in existing methods to constrain motion during inference, delivering more lifelike and high-quality results across various scenarios.</span></small>
       <div class='responsive-image-container'>
@@ -56,6 +49,22 @@
           <video src="video/main_3.mp4"></video>
           <video src="video/main_4.mp4"></video>
           <video src="video/main_5.mp4"></video>
+        </div>
+
+      <h3>Motion Diversity</h3>
+        <p>
+          Loopy can generate motion-adapted synthesis results for the same reference image based on different audio inputs, whether they are rapid, soothing, or realistic singing performances.
+        </p>
+        <div class="video-slider">
+          <!-- Real videos will be recreated using JavaScript. This is just a list of video srcs. -->
+          <video src="video/diverse_1.mp4"></video>
+          <video src="video/diverse_2.mp4"></video>
+          <video src="video/diverse_3.mp4"></video>
+          <video src="video/diverse_4.mp4"></video>
+          <video src="video/diverse_5.mp4"></video>
+          <video src="video/diverse_6.mp4"></video>
+          <video src="video/diverse_7.mp4"></video>
+          <video src="video/diverse_8.mp4"></video>
         </div>
           
 
