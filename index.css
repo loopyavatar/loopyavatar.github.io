@@ -73,6 +73,7 @@ button:hover {
 h1 {
   font-size: 40px;
   margin-bottom: 0.5em;
+  font-weight: 600;
 }
 
 h2 {
